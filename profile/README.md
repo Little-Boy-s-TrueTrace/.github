@@ -86,18 +86,19 @@ truetrace/
 ## Quick Start
 
 ```bash
-# Clone all repositories
-git clone https://github.com/Little-Boy-s-TrueTrace/truetrace.git
+# Clone all repositories (submodules)
+git clone --recursive https://github.com/Little-Boy-s-TrueTrace/truetrace.git
+cd truetrace
 
 # Start all services with Docker Compose
 cd truetrace-deployment
 cp .env.example .env
-docker-compose up -d
+docker compose up --build -d
 
-# Access points:
-# Web Client:  http://localhost (port 80)
-# Dashboard:   http://localhost/soc
-# Kafka UI:    http://localhost:9000
+# Access points (all through Nginx gateway on port 80):
+# Customer Portal:       http://localhost
+# Compliance Dashboard:  http://localhost/soc/
+# Kafka UI:              http://localhost:9000
 ```
 
 ## Regulatory References
