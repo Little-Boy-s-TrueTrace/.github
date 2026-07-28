@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**Hệ thống tự động hóa tuân thủ phòng chống lừa đảo chuyên sâu và rửa tiền cho Ngân hàng bằng Multi-Agent AI**
+**He thong tu dong hoa tuan thu phong chong lua dao chuyen sau va rua tien cho Ngan hang bang Multi-Agent AI**
 
 [![Backend](https://img.shields.io/badge/Backend-Spring_Boot_3-6DB33F?style=for-the-badge&logo=spring-boot)](truetrace-backend/)
 [![Engine](https://img.shields.io/badge/Engine-Python_3.11-3776AB?style=for-the-badge&logo=python)](truetrace-agent-engine/)
@@ -13,47 +13,47 @@
 
 ---
 
-## 🎯 Vấn đề cần giải quyết
+## Van de can giai quyet
 
-Các ngân hàng đang phải đối mặt với:
+Cac ngan hang dang phai doi mat voi:
 
-| Thách thức | Mô tả |
+| Thach thuc | Mo ta |
 |---|---|
-| 🎭 **Deepfake KYC Fraud** | Kẻ gian dùng AI giả mạo khuôn mặt/giọng nói để mở tài khoản ngân hàng ảo |
-| 💰 **Mule Accounts** | Dòng tiền lừa đảo được chia nhỏ và dịch chuyển qua hàng trăm tài khoản trong vài phút |
-| 📋 **Compliance Burden** | Nhân viên phải rà soát thủ công hàng ngàn giao dịch đáng ngờ để lập báo cáo STR |
+| **Deepfake KYC Fraud** | Ke gian dung AI gia mao khuon mat/giong noi de mo tai khoan ngan hang ao |
+| **Mule Accounts** | Dong tien lua dao duoc chia nho va dich chuyen qua hang tram tai khoan trong vai phut |
+| **Compliance Burden** | Nhan vien phai ra soat thu cong hang ngan giao dich dang ngo de lap bao cao STR |
 
-## 🏗️ Kiến trúc Multi-Agent AI
+## Kien truc Multi-Agent AI
 
-TrueTrace triển khai mạng lưới 3 AI Agent phối hợp nhịp nhàng:
+TrueTrace trien khai mang luoi 3 AI Agent phoi hop nhip nhang:
 
-### Agent 1: Deepfake Inspector 🔍
-> *Giám sát đầu vào KYC*
+### Agent 1: Deepfake Inspector
+> *Giam sat dau vao KYC*
 
-- Phân tích ảnh selfie và CCCD bằng AI Vision
-- Phát hiện GAN artifacts, pixel noise, face swapping
-- Xác thực CCCD (Căn cước công dân) 12 số
-- Đối chiếu khuôn mặt selfie vs ảnh trên CCCD
-- **Hành động**: Tự động APPROVE / REJECT / gửi MANUAL_REVIEW
+- Phan tich anh selfie va CCCD bang AI Vision
+- Phat hien GAN artifacts, pixel noise, face swapping
+- Xac thuc CCCD (Can cuoc cong dan) 12 so
+- Doi chieu khuon mat selfie vs anh tren CCCD
+- **Hanh dong**: Tu dong APPROVE / REJECT / gui MANUAL_REVIEW
 
-### Agent 2: Money-Trail Graph Explorer 📊
-> *Truy vết dòng tiền bất thường*
+### Agent 2: Money-Trail Graph Explorer
+> *Truy vet dong tien bat thuong*
 
-- Xây dựng đồ thị giao dịch real-time (Transaction Graph)
-- Phát hiện mẫu Fan-out (1→N), Fan-in (N→1), Circular flow
-- Phát hiện Structuring (chia nhỏ dưới ngưỡng báo cáo 200M VND)
-- Phát hiện Velocity Anomaly (giao dịch bất thường tần suất cao)
-- **Hành động**: Tự động phong tỏa tạm thời tài khoản đáng ngờ
+- Xay dung do thi giao dich real-time (Transaction Graph)
+- Phat hien mau Fan-out (1->N), Fan-in (N->1), Circular flow
+- Phat hien Structuring (chia nho duoi nguong bao cao 200M VND)
+- Phat hien Velocity Anomaly (giao dich bat thuong tan suat cao)
+- **Hanh dong**: Tu dong phong toa tam thoi tai khoan dang ngo
 
-### Agent 3: AML Report Generator 📝
-> *Tự động lập hồ sơ pháp lý*
+### Agent 3: AML Report Generator
+> *Tu dong lap ho so phap ly*
 
-- Thu thập bằng chứng từ Agent 1 & Agent 2
-- Sử dụng LLM (Qwen) tạo narrative bằng tiếng Việt
-- Tạo Báo cáo Giao dịch Đáng ngờ (STR) theo Thông tư 09/2023/TT-NHNN
-- **Hành động**: Báo cáo sẵn sàng để nhân viên bấm nút gửi trong 5 giây
+- Thu thap bang chung tu Agent 1 & Agent 2
+- Su dung LLM (Qwen) tao narrative bang tieng Viet
+- Tao Bao cao Giao dich Dang ngo (STR) theo Thong tu 09/2023/TT-NHNN
+- **Hanh dong**: Bao cao san sang de nhan vien bam nut gui trong 5 giay
 
-## 📁 Cấu trúc dự án
+## Cau truc du an
 
 ```
 truetrace/
@@ -70,7 +70,7 @@ truetrace/
 └── .github/                     # CI/CD & Organization templates
 ```
 
-## 🔧 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -83,7 +83,7 @@ truetrace/
 | **Messaging** | Apache Kafka (event streaming) |
 | **AI/ML** | Qwen LLM, AI Vision API |
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone all repositories
@@ -100,13 +100,13 @@ docker-compose up -d
 # Kafka UI:    http://localhost:9000
 ```
 
-## 📜 Quy định pháp lý tham chiếu
+## Quy dinh phap ly tham chieu
 
-- **Luật Phòng chống rửa tiền 2022** (Luật số 14/2022/QH15)
-- **Nghị định 19/2023/NĐ-CP** — Hướng dẫn thi hành Luật PCRT
-- **Thông tư 09/2023/TT-NHNN** — Báo cáo giao dịch đáng ngờ
-- **Ngưỡng CTR**: 300 triệu VND (tiền mặt) / 500 triệu VND (điện tử)
+- **Luat Phong chong rua tien 2022** (Luat so 14/2022/QH15)
+- **Nghi dinh 19/2023/ND-CP** -- Huong dan thi hanh Luat PCRT
+- **Thong tu 09/2023/TT-NHNN** -- Bao cao giao dich dang ngo
+- **Nguong CTR**: 300 trieu VND (tien mat) / 500 trieu VND (dien tu)
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
