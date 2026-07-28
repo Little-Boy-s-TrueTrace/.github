@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**He thong tu dong hoa tuan thu phong chong lua dao chuyen sau va rua tien cho Ngan hang bang Multi-Agent AI**
+**Automated compliance system for anti-fraud and anti-money laundering in banking, powered by Multi-Agent AI**
 
 [![Backend](https://img.shields.io/badge/Backend-Spring_Boot_3-6DB33F?style=for-the-badge&logo=spring-boot)](truetrace-backend/)
 [![Engine](https://img.shields.io/badge/Engine-Python_3.11-3776AB?style=for-the-badge&logo=python)](truetrace-agent-engine/)
@@ -13,47 +13,47 @@
 
 ---
 
-## Van de can giai quyet
+## The Problem
 
-Cac ngan hang dang phai doi mat voi:
+Banks are facing critical challenges:
 
-| Thach thuc | Mo ta |
+| Challenge | Description |
 |---|---|
-| **Deepfake KYC Fraud** | Ke gian dung AI gia mao khuon mat/giong noi de mo tai khoan ngan hang ao |
-| **Mule Accounts** | Dong tien lua dao duoc chia nho va dich chuyen qua hang tram tai khoan trong vai phut |
-| **Compliance Burden** | Nhan vien phai ra soat thu cong hang ngan giao dich dang ngo de lap bao cao STR |
+| **Deepfake KYC Fraud** | Criminals use AI to forge faces and voices to open fraudulent bank accounts |
+| **Mule Accounts** | Fraud proceeds are split and moved through hundreds of accounts in minutes |
+| **Compliance Burden** | Officers must manually review thousands of suspicious transactions to file STR reports |
 
-## Kien truc Multi-Agent AI
+## Multi-Agent AI Architecture
 
-TrueTrace trien khai mang luoi 3 AI Agent phoi hop nhip nhang:
+TrueTrace deploys a network of 3 AI Agents working in coordination:
 
 ### Agent 1: Deepfake Inspector
-> *Giam sat dau vao KYC*
+> *Monitors KYC submissions*
 
-- Phan tich anh selfie va CCCD bang AI Vision
-- Phat hien GAN artifacts, pixel noise, face swapping
-- Xac thuc CCCD (Can cuoc cong dan) 12 so
-- Doi chieu khuon mat selfie vs anh tren CCCD
-- **Hanh dong**: Tu dong APPROVE / REJECT / gui MANUAL_REVIEW
+- Analyzes selfie and CCCD (Citizen Identity Card) images using AI Vision
+- Detects GAN artifacts, pixel noise, and face swapping
+- Validates 12-digit CCCD number format
+- Cross-references selfie against the photo on the CCCD
+- **Action**: Automatically APPROVE / REJECT / escalate to MANUAL_REVIEW
 
 ### Agent 2: Money-Trail Graph Explorer
-> *Truy vet dong tien bat thuong*
+> *Traces abnormal money flows*
 
-- Xay dung do thi giao dich real-time (Transaction Graph)
-- Phat hien mau Fan-out (1->N), Fan-in (N->1), Circular flow
-- Phat hien Structuring (chia nho duoi nguong bao cao 200M VND)
-- Phat hien Velocity Anomaly (giao dich bat thuong tan suat cao)
-- **Hanh dong**: Tu dong phong toa tam thoi tai khoan dang ngo
+- Builds a real-time transaction graph (sliding window)
+- Detects Fan-out (1->N), Fan-in (N->1), and Circular flow patterns
+- Detects Structuring (splitting below the 200M VND reporting threshold)
+- Detects Velocity Anomalies (abnormally high transaction frequency)
+- **Action**: Automatically freezes suspicious accounts temporarily
 
 ### Agent 3: AML Report Generator
-> *Tu dong lap ho so phap ly*
+> *Automates legal documentation*
 
-- Thu thap bang chung tu Agent 1 & Agent 2
-- Su dung LLM (Qwen) tao narrative bang tieng Viet
-- Tao Bao cao Giao dich Dang ngo (STR) theo Thong tu 09/2023/TT-NHNN
-- **Hanh dong**: Bao cao san sang de nhan vien bam nut gui trong 5 giay
+- Collects evidence from Agent 1 & Agent 2
+- Uses LLM (Qwen) to generate bilingual narratives
+- Creates Suspicious Transaction Reports (STR) per Circular 09/2023/TT-NHNN
+- **Action**: Report ready for officer to review and submit in 5 seconds
 
-## Cau truc du an
+## Project Structure
 
 ```
 truetrace/
@@ -100,12 +100,12 @@ docker-compose up -d
 # Kafka UI:    http://localhost:9000
 ```
 
-## Quy dinh phap ly tham chieu
+## Regulatory References
 
-- **Luat Phong chong rua tien 2022** (Luat so 14/2022/QH15)
-- **Nghi dinh 19/2023/ND-CP** -- Huong dan thi hanh Luat PCRT
-- **Thong tu 09/2023/TT-NHNN** -- Bao cao giao dich dang ngo
-- **Nguong CTR**: 300 trieu VND (tien mat) / 500 trieu VND (dien tu)
+- **Law on Anti-Money Laundering 2022** (Law No. 14/2022/QH15)
+- **Decree 19/2023/ND-CP** -- Guidelines for implementing the AML Law
+- **Circular 09/2023/TT-NHNN** -- Suspicious Transaction Reporting
+- **CTR Thresholds**: 300 million VND (cash) / 500 million VND (electronic)
 
 ## License
 
