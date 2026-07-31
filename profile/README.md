@@ -23,11 +23,11 @@
 
 <p align="center">
   <strong>Built with <a href="https://qoder.com">Qoder</a></strong> &mdash; AI-Powered Spec-Driven Development<br/>
-  <a href="SPEC.md">Development Specs & Prompts</a> &bull;
-  <a href="docs/ARCHITECTURE.md">Architecture</a> &bull;
-  <a href="docs/TESTING.md">Test Matrix</a> &bull;
-  <a href="docs/PRODUCTION-READINESS.md">Production Readiness</a> &bull;
-  <a href="docs/DEMO-RUNBOOK.md">Demo Runbook</a>
+  <a href="https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/SPEC.md">Development Specs & Prompts</a> &bull;
+  <a href="https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/ARCHITECTURE.md">Architecture</a> &bull;
+  <a href="https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/TESTING.md">Test Matrix</a> &bull;
+  <a href="https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/PRODUCTION-READINESS.md">Production Readiness</a> &bull;
+  <a href="https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/DEMO-RUNBOOK.md">Demo Runbook</a>
 </p>
 
 ---
@@ -91,7 +91,7 @@ TrueTrace is a **production-grade, autonomous compliance platform** that deploys
 
 TrueTrace is deployed on **Alibaba Cloud** using a multi-zone, event-driven enterprise architecture powered by Apache Kafka, Redis, ApsaraDB for PostgreSQL, and Alibaba Cloud AI services (Qwen-VL, DashScope LLM API):
 
-![TrueTrace System Architecture Deployment on Alibaba Cloud](docs/images/system-architecture.jpg)
+![TrueTrace System Architecture Deployment on Alibaba Cloud](https://raw.githubusercontent.com/Little-Boy-s-TrueTrace/truetrace/main/docs/images/system-architecture.jpg)
 
 ### Multi-Tier Architecture Breakdown
 
@@ -110,7 +110,7 @@ TrueTrace is deployed on **Alibaba Cloud** using a multi-zone, event-driven ente
 
 The platform executes an end-to-end data processing and multi-agent orchestration workflow:
 
-![TrueTrace System Design Workflow](docs/images/system-design.jpg)
+![TrueTrace System Design Workflow](https://raw.githubusercontent.com/Little-Boy-s-TrueTrace/truetrace/main/docs/images/system-design.jpg)
 
 ### Pipeline Stages
 
@@ -220,7 +220,7 @@ TrueTrace was built using **[Qoder](https://qoder.com)**'s AI-Powered Spec-Drive
 
 ### Example Qoder Prompts Used
 
-All prompts used to build TrueTrace are documented in [`SPEC.md`](SPEC.md), including:
+All prompts used to build TrueTrace are documented in [`SPEC.md`](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/SPEC.md), including:
 
 1. **Spring Boot Banking Backend** -- Core banking APIs, JPA entities, Kafka producers
 2. **Python Agent Engine** -- AsyncIO + aiokafka orchestrator for multi-agent dispatch
@@ -230,7 +230,7 @@ All prompts used to build TrueTrace are documented in [`SPEC.md`](SPEC.md), incl
 6. **React Compliance Dashboard** -- Real-time monitoring console with KPI cards and alert feeds
 7. **Next.js Customer Portal** -- Multi-step registration, KYC upload, and transfer forms
 8. **Docker Compose Orchestration** -- 11-container microservices with networking and health checks
-9. **Terraform AWS Infrastructure** -- VPC, RDS, ElastiCache, MSK, ECS Fargate deployment
+9. **Terraform Alibaba Cloud Infrastructure** -- VPC, ApsaraDB, Redis, ApsaraMQ Kafka, ECS deployment
 
 ---
 
@@ -249,7 +249,7 @@ TrueTrace is organized as a Git superproject with 10 submodules, each maintained
 | **[truetrace-web-client](https://github.com/Little-Boy-s-TrueTrace/truetrace-web-client)** | Next.js 16 / Node 22 | Customer portal enabling users to register, log in, transfer money, and submit KYC documents |
 | **[truetrace-mobile-app](https://github.com/Little-Boy-s-TrueTrace/truetrace-mobile-app)** | Flutter 3 / Dart | Customer mobile banking application with transactions, transfer forms, and balance views |
 | **[truetrace-deployment](https://github.com/Little-Boy-s-TrueTrace/truetrace-deployment)** | Docker Compose / Helm / K8s | Container orchestration, Nginx gateway, Kafka init scripts, and deployment configurations |
-| **[truetrace-terraform](https://github.com/Little-Boy-s-TrueTrace/truetrace-terraform)** | HCL / Terraform | Cloud infrastructure definitions targeting AWS (ECS, RDS, MSK, ElastiCache, WAF) |
+| **[truetrace-terraform](https://github.com/Little-Boy-s-TrueTrace/truetrace-terraform)** | HCL / Terraform | Cloud infrastructure definitions targeting Alibaba Cloud (ECS, ApsaraDB, ApsaraMQ Kafka, Redis, SLB, OSS) |
 
 ---
 
@@ -317,7 +317,7 @@ This deterministic verifier validates the entire pipeline end-to-end:
 - Tests structuring detection with near-threshold VND 190M transfers
 - Verifies STR review/submission human-in-the-loop workflow
 
-Follow [`docs/DEMO-RUNBOOK.md`](docs/DEMO-RUNBOOK.md) for the exact recording sequence.
+Follow [`docs/DEMO-RUNBOOK.md`](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/DEMO-RUNBOOK.md) for the exact recording sequence.
 
 ### Troubleshooting
 
@@ -384,7 +384,7 @@ web-client-tests┘
 - **Security scanning**: Trivy container vulnerability scanning on Docker images
 - **Docker Hub**: Automated image push on `main` branch merges
 
-See [`.github/workflows/full-stack-ci.yml`](.github/workflows/full-stack-ci.yml) for the complete pipeline definition.
+See [`ci-cd.yml`](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/.github/workflows/ci-cd.yml) for the complete pipeline definition.
 
 ---
 
@@ -400,7 +400,7 @@ See [`.github/workflows/full-stack-ci.yml`](.github/workflows/full-stack-ci.yml)
 | **Secret Management** | All secrets via environment variables / secret manager; never committed to Git |
 | **Production Hardening** | Agent Engine refuses to start in `production` mode with demo/default configuration |
 
-See [`docs/PRODUCTION-READINESS.md`](docs/PRODUCTION-READINESS.md) for the complete production deployment checklist.
+See [`docs/PRODUCTION-READINESS.md`](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/PRODUCTION-READINESS.md) for the complete production deployment checklist.
 
 ---
 
@@ -419,18 +419,18 @@ See [`docs/PRODUCTION-READINESS.md`](docs/PRODUCTION-READINESS.md) for the compl
 
 ### Submission Deliverables
 
-- [SPEC.md](SPEC.md) -- Complete Qoder development workflow, all prompts, and AI-accelerated results
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) -- System architecture and data flow documentation
-- [docs/DEMO-RUNBOOK.md](docs/DEMO-RUNBOOK.md) -- Step-by-step deterministic demo recording guide
-- [docs/TESTING.md](docs/TESTING.md) -- Full test matrix and verification commands
-- [docs/PRODUCTION-READINESS.md](docs/PRODUCTION-READINESS.md) -- Production deployment and security checklist
+- [SPEC.md](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/SPEC.md) -- Complete Qoder development workflow, all prompts, and AI-accelerated results
+- [docs/ARCHITECTURE.md](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/ARCHITECTURE.md) -- System architecture and data flow documentation
+- [docs/DEMO-RUNBOOK.md](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/DEMO-RUNBOOK.md) -- Step-by-step deterministic demo recording guide
+- [docs/TESTING.md](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/TESTING.md) -- Full test matrix and verification commands
+- [docs/PRODUCTION-READINESS.md](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/PRODUCTION-READINESS.md) -- Production deployment and security checklist
 
 ### UGC Posts
 
 As required by the hackathon submission guidelines:
 
-- [LinkedIn Post](docs/UGC_LINKEDIN.md) -- Project description and Qoder experience (@Qoder @AlibabaCloud #QoderHackathon #QoderVietnam)
-- [X/Twitter Post](docs/UGC_TWITTER.md) -- Short-form project announcement (@Qoder #QoderHackathon #QoderVietnam)
+- [LinkedIn Post](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/UGC_LINKEDIN.md) -- Project description and Qoder experience (@Qoder @AlibabaCloud #QoderHackathon #QoderVietnam)
+- [X/Twitter Post](https://github.com/Little-Boy-s-TrueTrace/truetrace/blob/main/docs/UGC_TWITTER.md) -- Short-form project announcement (@Qoder #QoderHackathon #QoderVietnam)
 
 ---
 
