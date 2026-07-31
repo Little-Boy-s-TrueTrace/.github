@@ -27,7 +27,7 @@ Financial institutions in Vietnam face three escalating compliance challenges th
 
 | Challenge | Impact |
 |---|---|
-| **Deepfake Identity Fraud** | AI-generated faces and altered CCCD documents bypass KYC onboarding, enabling criminal accounts |
+| **Deepfake Identity Fraud** | AI-generated faces and altered Citizen Identity Card documents bypass KYC onboarding, enabling criminal accounts |
 | **Money Laundering Networks** | Sophisticated layering via mule accounts, structuring, and circular flows evade rule-based detection |
 | **STR Reporting Burden** | Each Suspicious Transaction Report requires **2-4 hours** of manual drafting per case |
 
@@ -38,7 +38,7 @@ TrueTrace deploys three specialized AI agents working as a collaborative team:
 ### Agent 1: Deepfake Inspector
 > *Powered by Alibaba Cloud Qwen-VL Vision AI*
 
-- Analyzes selfie and CCCD (Citizen Identity Card) images
+- Analyzes selfie and Citizen Identity Card images
 - Detects GAN artifacts, deepfakes, and face swapping
 - Validates face match, liveness, and document integrity
 - **Result**: Auto **APPROVE** / **REJECT** / escalate to **MANUAL_REVIEW** in **< 10 seconds**
