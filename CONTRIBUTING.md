@@ -1,6 +1,6 @@
 # Contributing to TrueTrace
 
-Thank you for helping improve TrueTrace. This project is open source, security-focused, and intentionally split across multiple repositories so each part can be reviewed and tested independently.
+Thank you for helping improve TrueTrace. This project is open source and intentionally split across multiple repositories so each part can be reviewed and tested independently.
 
 ## Start in the right repository
 
@@ -8,16 +8,17 @@ Open issues and pull requests in the repository that owns the change:
 
 | Area | Repository |
 |---|---|
-| Local orchestration, Docker, Kubernetes, Helm | `truetrace-deployment` |
-| Banking API and security events | `truetrace-backend` |
-| Banking web client | `truetrace-web-client` |
-| Mobile app | `truetrace-mobile-app` |
-| Compliance dashboard | `dashboard` |
-| AI agent engine, connectors, playbooks | `truetrace-agent-engine` |
-| Layer 1 detection agents | `agent-layer-1` |
-| Layer 2 correlation and response decisions | `agent-layer-2` |
-| Response simulation sandbox | `truetrace-staging-sandbox` |
-| AWS infrastructure | `truetrace-terraform` |
+| Root project, docs, architecture | [`truetrace`](https://github.com/Little-Boy-s-TrueTrace/truetrace) |
+| Banking API, accounts, transactions, KYC/AML/STR | [`truetrace-backend`](https://github.com/Little-Boy-s-TrueTrace/truetrace-backend) |
+| Multi-Agent AI orchestrator, Kafka consumers | [`truetrace-agent-engine`](https://github.com/Little-Boy-s-TrueTrace/truetrace-agent-engine) |
+| Deepfake Inspector agent prompts and schemas | [`agent-deepfake-inspector`](https://github.com/Little-Boy-s-TrueTrace/agent-deepfake-inspector) |
+| Money-Trail Explorer agent rules and heuristics | [`agent-money-trail`](https://github.com/Little-Boy-s-TrueTrace/agent-money-trail) |
+| AML STR Reporter agent templates | [`agent-aml-reporter`](https://github.com/Little-Boy-s-TrueTrace/agent-aml-reporter) |
+| Compliance dashboard (Go API + React UI) | [`truetrace-dashboard`](https://github.com/Little-Boy-s-TrueTrace/truetrace-dashboard) |
+| Customer web portal (Next.js) | [`truetrace-web-client`](https://github.com/Little-Boy-s-TrueTrace/truetrace-web-client) |
+| Mobile banking app (Flutter) | [`truetrace-mobile-app`](https://github.com/Little-Boy-s-TrueTrace/truetrace-mobile-app) |
+| Docker Compose, Kubernetes, Helm, Nginx | [`truetrace-deployment`](https://github.com/Little-Boy-s-TrueTrace/truetrace-deployment) |
+| AWS/Alibaba Cloud infrastructure (Terraform) | [`truetrace-terraform`](https://github.com/Little-Boy-s-TrueTrace/truetrace-terraform) |
 
 For cross-repository proposals, open a design issue in the repository with the largest expected implementation impact and link follow-up issues from there.
 
@@ -29,26 +30,15 @@ For cross-repository proposals, open a design issue in the repository with the l
 - Update documentation when changing setup, APIs, schemas, policy gates, or operational assumptions.
 - Never commit secrets, real customer data, cloud credentials, tokens, private keys, production logs, or exploit artifacts from systems you do not own.
 
-## Security and safety expectations
-
-TrueTrace includes attack simulation and vulnerable-mode demonstrations for defensive evaluation. Contributions must keep those capabilities safe:
-
-- Run offensive scenarios only against systems you own or are explicitly authorized to test.
-- Use synthetic data and local lab environments.
-- Keep vulnerable modes isolated and clearly documented.
-- Do not add persistence, evasion, credential theft, destructive payloads, or uncontrolled scanning.
-- For response automation, document evidence requirements, authorization policy, blast-radius limits, audit fields, and rollback behavior.
-
 ## Pull request checklist
 
 Before opening a pull request, confirm that:
 
 - The change has a clear issue, motivation, or review note.
 - Tests or validation steps are included in the pull request description.
-- Security-sensitive behavior has a threat model note.
 - Documentation reflects the new behavior.
-- The contribution is compatible with the Apache License 2.0.
+- The contribution is compatible with the MIT License.
 
 ## License
 
-Unless explicitly stated otherwise, contributions submitted to TrueTrace are provided under the Apache License 2.0.
+Unless explicitly stated otherwise, contributions submitted to TrueTrace are provided under the MIT License.
